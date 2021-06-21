@@ -9,4 +9,6 @@ from config.environment import SOURCE_STORAGE
 def tile(task):
     filepath = os.path.join(SOURCE_STORAGE, task['filepath'])
     with COGReader(filepath) as georaster:
-        return georaster.tile(task['x'], task['y'], task['z'], tilesize=task['resolution']).data
+        _tile = georaster.tile(task['x'], task['y'], task['z'], tilesize=task['resolution']).data[0]
+        print(_tile.shape)
+        return _tile
