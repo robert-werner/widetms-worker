@@ -7,7 +7,8 @@ app = Celery('widetms.worker', broker=CELERY_BROKER_URL, backend=CELERY_RESULT_U
 app.conf.update(
     task_serializer='pickle',
     result_serializer='pickle',
-    accept_content=['pickle']
+    accept_content=['pickle'],
+    result_expires='10'
 )
 
 app.conf.task_routes = {'widetms.worker.tile': {'queue': 'tiler'}}
