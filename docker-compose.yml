@@ -1,0 +1,10 @@
+version: '3'
+services:
+  widetms-tiler:
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+    - ${SOURCE_SOURCE_STORAGE}:${TARGET_SOURCE_STORAGE}

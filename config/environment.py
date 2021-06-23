@@ -1,5 +1,5 @@
 import os
 
-CELERY_BROKER_URL = r"redis://172.17.0.1:6379"
-CELERY_RESULT_URL = r"redis://172.17.0.1:6379"
-SOURCE_STORAGE = '/mnt/NewVolume/source_storage'
+CELERY_BROKER_URL = os.environ['CELERY_BROKER_URL']
+CELERY_RESULT_URL = os.environ['CELERY_RESULT_URL']
+SOURCE_STORAGE = os.environ['TARGET_SOURCE_STORAGE']
