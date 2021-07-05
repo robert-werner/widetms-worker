@@ -8,7 +8,7 @@ app.conf.update(
     task_serializer='pickle',
     result_serializer='pickle',
     accept_content=['pickle'],
-    result_expires='10'
+    result_expires='60'
 )
 
 app.conf.task_routes = {'widetms.worker.tile': {'queue': 'tiler'}}
