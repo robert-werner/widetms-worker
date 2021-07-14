@@ -18,7 +18,7 @@ class Scaler:
         if np.issubdtype(tile.dtype, np.integer) and np.issubdtype(destination_dtype, np.floating):
             conversion_coef = np.iinfo(tile.dtype).max
             divided_tile = tile / conversion_coef
-            return divided_tile
+            return divided_tile.astype(destination_dtype)
         if np.issubdtype(tile.dtype, np.floating) and np.issubdtype(destination_dtype, np.integer):
             conversion_coef = np.iinfo(destination_dtype).max
             tile *= conversion_coef
