@@ -11,7 +11,6 @@ from widetms.tile_scalers.scaler import scale_tile
 @app.task()
 def tile(task):
     result_tile = None
-    return_tile = None
     try:
         filepaths = [os.path.join(SOURCE_STORAGE, filepath) for filepath in task['filepaths']]
         band_package = list(zip(filepaths, task['bands']))
@@ -22,6 +21,7 @@ def tile(task):
                                          tilesize=task['resolution'],
                                          bands=georaster.bands,
                                          expression=task['expressions'])
+            print(task['expressions'])
             if task['expressions'] == '':
                 if numpy.dtype(task['dtype']) == result_tile.data[0].dtype:
                     return result_tile.data[0]
