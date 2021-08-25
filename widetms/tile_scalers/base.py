@@ -9,6 +9,7 @@ import numpy as np
 @attr.s
 class Scaler:
     scale_value: typing.Any = attr.ib()
+    in_range = typing.Any = attr.ib()
     scale_op: typing.Any = attr.ib(default=operator.truediv)
 
     def scale(self, tile, dtype=None):
